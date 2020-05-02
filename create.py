@@ -104,7 +104,7 @@ with open(users.users) as csvfile:
 
 # Generate the courses.csv for import into Moodle
 with open('courses.csv', 'w', newline='\n') as courses_csv:
-    fields = ['fullname', 'shortname', 'category_idnumber']
+    fields = ['fullname', 'shortname', 'category']
     writer = csv.DictWriter(courses_csv, fieldnames=fields)
     writer.writeheader()
 
@@ -114,7 +114,7 @@ with open('courses.csv', 'w', newline='\n') as courses_csv:
         course_name = course_name.replace(" ", "")
         writer.writerow(
             {'fullname': course_name, 'shortname': course_name,
-             'category_idnumber': users.category})
+             'category': users.category})
 
 
 # Generate the users.csv for import into Moodle
